@@ -1,0 +1,10 @@
+# Note: ReportLab requires Microsoft Visual C++ Build Tools on Windows
+# Install from: https://visualstudio.microsoft.com/visual-cpp-build-tools/
+Flask==2.0.1
+PyPDF2==2.10.5
+Werkzeug==2.0.1
+python-magic==0.4.27
+reportlab==3.6.1
+
+# Alternative: Use this if you can't install Visual C++ Build Tools
+# fpdf2==2.7.4

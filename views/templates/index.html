@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book of Documents Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/manage.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header-container">
+            <h1 data-i18n="app_title">Book of Documents Generator</h1>
+            <div class="language-selector">
+                <label for="languageSelector" data-i18n="language">Language</label>
+                <select id="languageSelector">
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                </select>
+            </div>
+        </div>
+        
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="alert alert-danger">
+                <ul>
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            </div>
+          {% endif %}
+        {% endwith %}
+        
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="alert alert-danger">
+              {% for message in messages %}
+                <pre style="white-space: pre-wrap; word-break: break-word; max-height: 400px; overflow-y: auto;">{{ message }}</pre>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+        
+        <div class="upload-container">
+            <div class="upload-section drop-zone" id="dropZone">
+                <h2 data-i18n="upload_title">Upload Documents</h2>
+                <p data-i18n="upload_instructions">Drag and drop PDF or ZIP files here, or click to select files</p>
+                <form id="uploadForm" method="post" action="{{ url_for('document.upload_file') }}" enctype="multipart/form-data">
+                    <input type="file" name="file" id="file" accept=".pdf,.zip" class="file-input" multiple>
+                    <label for="file" class="file-label" data-i18n="choose_files">Choose Files</label>
+                </form>
+                <p class="extra-options">
+                    <span data-i18n="upload_folder_option">You can also</span> 
+                    <label for="folder" class="folder-link">upload a folder</label> 
+                    <span>containing PDF files</span>
+                </p>
+                <form id="folderForm" method="post" action="{{ url_for('document.upload_file') }}" enctype="multipart/form-data" class="hidden-form">
+                    <input type="file" name="folder" id="folder" webkitdirectory directory multiple class="file-input">
+                </form>
+            </div>
+        </div>
+        
+        <div class="document-container">
+            <div class="document-header">
+                <h2 data-i18n="document_list">Document List</h2>
+                <div class="document-actions">
+                    <button id="clearAll" class="btn btn-danger" data-i18n="clear_all">Clear All</button>
+                    <button id="generatePDF" class="btn btn-primary" data-i18n="generate_book">Generate Book</button>
+                </div>
+            </div>
+            
+            <p id="dragHint" class="drag-hint" data-i18n="drag_hint">Drag items to reorder documents in the final PDF</p>
+            
+            <div id="documentList" class="document-list">
+                {% if documents|length == 0 %}
+                    <div class="no-documents" data-i18n="no_documents">No documents uploaded yet</div>
+                {% else %}
+                    {% for doc in documents %}
+                        <div class="document-item" draggable="true" data-id="{{ doc.id }}">
+                            <div class="document-icon" title="Click to preview document">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="9" y1="15" x2="15" y2="15"></line>
+                                </svg>
+                            </div>
+                            <div class="document-info">
+                                <div class="document-name">{{ doc.original_filename }}</div>
+                                <div class="document-meta">
+                                    <span class="document-status {{ doc.status }}">{{ doc.status }}</span>
+                                    <span class="document-pages">{{ doc.page_count }} pages</span>
+                                </div>
+                            </div>
+                            <div class="document-actions">
+                                <button class="btn-delete" data-id="{{ doc.id }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                    </svg>
+                                </button>
+                                <div class="drag-handle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="9" cy="12" r="1"></circle>
+                                        <circle cx="9" cy="5" r="1"></circle>
+                                        <circle cx="9" cy="19" r="1"></circle>
+                                        <circle cx="15" cy="12" r="1"></circle>
+                                        <circle cx="15" cy="5" r="1"></circle>
+                                        <circle cx="15" cy="19" r="1"></circle>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="info-container">
+            <h2 data-i18n="about_title">About Book of Documents</h2>
+            <p data-i18n="about_description">This tool combines multiple documents into a single PDF file with:</p>
+            <ul>
+                <li data-i18n="feature_cover">A custom cover page</li>
+                <li data-i18n="feature_index">An index listing all documents with page numbers</li>
+                <li data-i18n="feature_receipt">A receipt page showing processing status</li>
+            </ul>
+            <p data-i18n="supported_formats">Supported formats: PDF files, ZIP archives containing PDFs</p>
+
+            <details class="log-details">
+                <summary data-i18n="view_logs">View Recent Logs</summary>
+                <div class="log-container">
+                    <pre id="logContent">Loading logs...</pre>
+                    <button id="refreshLogs" class="btn btn-secondary" data-i18n="refresh_logs">Refresh Logs</button>
+                </div>
+            </details>
+        </div>
+    </div>
+
+    <!-- Upload progress overlay -->
+    <div id="uploadProgress" class="upload-progress-overlay">
+        <div class="upload-progress-content">
+            <h3 data-i18n="uploading">Uploading Documents</h3>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div id="progressText">0%</div>
+        </div>
+    </div>
+    
+    <!-- Generation progress overlay -->
+    <div id="generationProgress" class="upload-progress-overlay">
+        <div class="upload-progress-content">
+            <h3 data-i18n="generating">Generating Book of Documents</h3>
+            <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+            </div>
+            <div id="generationText">Initializing document generation...</div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/i18n.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+    // Add this after the other scripts load
+    document.addEventListener('DOMContentLoaded', function() {
+        const refreshLogsBtn = document.getElementById('refreshLogs');
+        const logContent = document.getElementById('logContent');
+
+        function loadLogs() {
+            fetch('/logs')
+                .then(response => response.text())
+                .then(data => {
+                    logContent.textContent = data;
+                    logContent.scrollTop = logContent.scrollHeight;
+                })
+                .catch(error => {
+                    logContent.textContent = "Error loading logs: " + error;
+                });
+        }
+
+        // Load logs when details is opened
+        document.querySelector('.log-details').addEventListener('toggle', function(e) {
+            if (this.open) {
+                loadLogs();
+            }
+        });
+
+        // Refresh logs button
+        if (refreshLogsBtn) {
+            refreshLogsBtn.addEventListener('click', loadLogs);
+        }
+    });
+    </script>
+</body>
+</html>

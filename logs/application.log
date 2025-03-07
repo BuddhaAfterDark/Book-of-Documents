@@ -1,0 +1,398 @@
+2025-03-07 09:29:58,439 - book_of_documents - INFO - Using ReportLab for PDF generation
+2025-03-07 09:32:37,425 - book_of_documents - INFO - Using ReportLab for PDF generation
+2025-03-07 09:32:37,916 - book_of_documents - INFO - Using ReportLab for PDF generation
+2025-03-07 09:33:20,045 - book_of_documents - INFO - Starting Book of Documents generation
+2025-03-07 09:33:20,046 - book_of_documents - INFO - Retrieved 7 documents from session
+2025-03-07 09:33:20,047 - book_of_documents - INFO - Created temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmp6mn7tug_
+2025-03-07 09:33:20,048 - book_of_documents - INFO - Creating cover page...
+2025-03-07 09:33:20,061 - book_of_documents - INFO - Creating index page...
+2025-03-07 09:33:20,069 - book_of_documents - ERROR - Error creating Book of Documents: format not resolved, probably missing URL scheme or undefined destination target for '2'
+
+Details:
+Traceback (most recent call last):
+  File "c:\Code\Book of Documents\controllers\document_controller.py", line 268, in generate_pdf
+    create_index_page(index_path, book.documents)
+  File "c:\Code\Book of Documents\utils\pdf_utils.py", line 164, in create_index_page
+    index_doc.build(content)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\platypus\doctemplate.py", line 1317, in build
+    BaseDocTemplate.build(self,flowables, canvasmaker=canvasmaker)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\platypus\doctemplate.py", line 1108, in build
+    self._endBuild()
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\platypus\doctemplate.py", line 1043, in _endBuild
+    if getattr(self,'_doSave',1): self.canv.save()
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfgen\canvas.py", line 1298, in save
+    self._doc.SaveToFile(self._filename, self)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 212, in SaveToFile
+    data = self.GetPDFData(canvas)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 238, in GetPDFData
+    return self.format()
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 420, in format
+    IOf = IO.format(self)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 867, in format
+    fcontent = format(self.content, document, toplevel=1)   # yes this is at top level
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 67, in format
+    f = element.format(document)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 1604, in format
+    return D.format(document)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 680, in format
+    L = [(format(PDFName(k),document)+b" "+format(dict[k],document)) for k in keys]
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 680, in <listcomp>
+    L = [(format(PDFName(k),document)+b" "+format(dict[k],document)) for k in keys]
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 67, in format
+    f = element.format(document)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 1768, in format
+    if f is None: raise ValueError("format not resolved, probably missing URL scheme or undefined destination target for '%s'" % self.name)
+ValueError: format not resolved, probably missing URL scheme or undefined destination target for '2'
+
+2025-03-07 09:35:47,215 - book_of_documents - INFO - Using ReportLab for PDF generation
+2025-03-07 09:35:47,716 - book_of_documents - INFO - Using ReportLab for PDF generation
+2025-03-07 09:35:57,300 - book_of_documents - INFO - Starting Book of Documents generation
+2025-03-07 09:35:57,301 - book_of_documents - INFO - Retrieved 1 documents from session
+2025-03-07 09:35:57,306 - book_of_documents - INFO - Created temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmpzvygs1lc
+2025-03-07 09:35:57,307 - book_of_documents - INFO - Creating cover page...
+2025-03-07 09:35:57,312 - book_of_documents - INFO - Creating index page...
+2025-03-07 09:35:57,328 - book_of_documents - ERROR - Error creating Book of Documents: format not resolved, probably missing URL scheme or undefined destination target for 'doc1'
+
+Details:
+Traceback (most recent call last):
+  File "c:\Code\Book of Documents\controllers\document_controller.py", line 268, in generate_pdf
+    index_result = create_index_page(index_path, book.documents)
+  File "c:\Code\Book of Documents\utils\pdf_utils.py", line 165, in create_index_page
+    index_doc.build(content)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\platypus\doctemplate.py", line 1317, in build
+    BaseDocTemplate.build(self,flowables, canvasmaker=canvasmaker)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\platypus\doctemplate.py", line 1108, in build
+    self._endBuild()
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\platypus\doctemplate.py", line 1043, in _endBuild
+    if getattr(self,'_doSave',1): self.canv.save()
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfgen\canvas.py", line 1298, in save
+    self._doc.SaveToFile(self._filename, self)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 212, in SaveToFile
+    data = self.GetPDFData(canvas)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 238, in GetPDFData
+    return self.format()
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 420, in format
+    IOf = IO.format(self)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 867, in format
+    fcontent = format(self.content, document, toplevel=1)   # yes this is at top level
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 67, in format
+    f = element.format(document)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 1604, in format
+    return D.format(document)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 680, in format
+    L = [(format(PDFName(k),document)+b" "+format(dict[k],document)) for k in keys]
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 680, in <listcomp>
+    L = [(format(PDFName(k),document)+b" "+format(dict[k],document)) for k in keys]
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 67, in format
+    f = element.format(document)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 1768, in format
+    if f is None: raise ValueError("format not resolved, probably missing URL scheme or undefined destination target for '%s'" % self.name)
+ValueError: format not resolved, probably missing URL scheme or undefined destination target for 'doc1'
+
+2025-03-07 09:38:31,130 - book_of_documents - INFO - Using ReportLab for PDF generation
+2025-03-07 09:38:31,630 - book_of_documents - INFO - Using ReportLab for PDF generation
+2025-03-07 09:38:57,772 - book_of_documents - INFO - Starting Book of Documents generation
+2025-03-07 09:38:57,773 - book_of_documents - INFO - Retrieved 1 documents from session
+2025-03-07 09:38:57,776 - book_of_documents - INFO - Created temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmprpjkfek9
+2025-03-07 09:38:57,777 - book_of_documents - INFO - Creating cover page...
+2025-03-07 09:38:57,781 - book_of_documents - INFO - Creating index page...
+2025-03-07 09:38:57,785 - book_of_documents - INFO - Creating receipt page...
+2025-03-07 09:38:57,791 - book_of_documents - INFO - Found 1 successful documents to merge
+2025-03-07 09:38:57,797 - book_of_documents - INFO - Merging 4 PDFs to: output\book_of_documents_10a229ae-19ee-4380-8a99-a307951f26e3.pdf
+2025-03-07 09:38:57,890 - book_of_documents - INFO - Cleaned up temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmprpjkfek9
+2025-03-07 09:38:57,891 - book_of_documents - INFO - Successfully generated Book of Documents: output\book_of_documents_10a229ae-19ee-4380-8a99-a307951f26e3.pdf
+2025-03-07 09:43:06,773 - book_of_documents - INFO - Using ReportLab for PDF generation
+2025-03-07 09:43:07,271 - book_of_documents - INFO - Using ReportLab for PDF generation
+2025-03-07 09:43:15,823 - book_of_documents - INFO - Starting Book of Documents generation
+2025-03-07 09:43:16,111 - book_of_documents - INFO - Retrieved 1 documents from session
+2025-03-07 09:43:16,117 - book_of_documents - INFO - Created temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmp3r16l6j_
+2025-03-07 09:43:16,118 - book_of_documents - INFO - Creating cover page...
+2025-03-07 09:43:16,124 - book_of_documents - INFO - Creating index page...
+2025-03-07 09:43:16,130 - book_of_documents - ERROR - Error creating Book of Documents: format not resolved, probably missing URL scheme or undefined destination target for '2'
+
+Details:
+Traceback (most recent call last):
+  File "c:\Code\Book of Documents\controllers\document_controller.py", line 268, in generate_pdf
+    index_result = create_index_page(index_path, book.documents)
+  File "c:\Code\Book of Documents\utils\pdf_utils.py", line 165, in create_index_page
+    index_doc.build(content)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\platypus\doctemplate.py", line 1317, in build
+    BaseDocTemplate.build(self,flowables, canvasmaker=canvasmaker)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\platypus\doctemplate.py", line 1108, in build
+    self._endBuild()
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\platypus\doctemplate.py", line 1043, in _endBuild
+    if getattr(self,'_doSave',1): self.canv.save()
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfgen\canvas.py", line 1298, in save
+    self._doc.SaveToFile(self._filename, self)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 212, in SaveToFile
+    data = self.GetPDFData(canvas)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 238, in GetPDFData
+    return self.format()
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 420, in format
+    IOf = IO.format(self)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 867, in format
+    fcontent = format(self.content, document, toplevel=1)   # yes this is at top level
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 67, in format
+    f = element.format(document)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 1604, in format
+    return D.format(document)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 680, in format
+    L = [(format(PDFName(k),document)+b" "+format(dict[k],document)) for k in keys]
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 680, in <listcomp>
+    L = [(format(PDFName(k),document)+b" "+format(dict[k],document)) for k in keys]
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 67, in format
+    f = element.format(document)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 1768, in format
+    if f is None: raise ValueError("format not resolved, probably missing URL scheme or undefined destination target for '%s'" % self.name)
+ValueError: format not resolved, probably missing URL scheme or undefined destination target for '2'
+
+2025-03-07 09:44:15,778 - book_of_documents - INFO - Starting Book of Documents generation
+2025-03-07 09:44:15,778 - book_of_documents - INFO - Retrieved 1 documents from session
+2025-03-07 09:44:15,779 - book_of_documents - INFO - Created temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmpk3xb9gyv
+2025-03-07 09:44:15,780 - book_of_documents - INFO - Creating cover page...
+2025-03-07 09:44:15,782 - book_of_documents - INFO - Creating index page...
+2025-03-07 09:44:15,785 - book_of_documents - ERROR - Error creating Book of Documents: format not resolved, probably missing URL scheme or undefined destination target for '2'
+
+Details:
+Traceback (most recent call last):
+  File "c:\Code\Book of Documents\controllers\document_controller.py", line 268, in generate_pdf
+    index_result = create_index_page(index_path, book.documents)
+  File "c:\Code\Book of Documents\utils\pdf_utils.py", line 165, in create_index_page
+    index_doc.build(content)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\platypus\doctemplate.py", line 1317, in build
+    BaseDocTemplate.build(self,flowables, canvasmaker=canvasmaker)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\platypus\doctemplate.py", line 1108, in build
+    self._endBuild()
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\platypus\doctemplate.py", line 1043, in _endBuild
+    if getattr(self,'_doSave',1): self.canv.save()
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfgen\canvas.py", line 1298, in save
+    self._doc.SaveToFile(self._filename, self)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 212, in SaveToFile
+    data = self.GetPDFData(canvas)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 238, in GetPDFData
+    return self.format()
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 420, in format
+    IOf = IO.format(self)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 867, in format
+    fcontent = format(self.content, document, toplevel=1)   # yes this is at top level
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 67, in format
+    f = element.format(document)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 1604, in format
+    return D.format(document)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 680, in format
+    L = [(format(PDFName(k),document)+b" "+format(dict[k],document)) for k in keys]
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 680, in <listcomp>
+    L = [(format(PDFName(k),document)+b" "+format(dict[k],document)) for k in keys]
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 67, in format
+    f = element.format(document)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 1768, in format
+    if f is None: raise ValueError("format not resolved, probably missing URL scheme or undefined destination target for '%s'" % self.name)
+ValueError: format not resolved, probably missing URL scheme or undefined destination target for '2'
+
+2025-03-07 09:44:56,566 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 09:45:04,129 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 09:47:39,131 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 09:47:52,124 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 09:47:52,621 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 09:48:05,967 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:213 - Starting Book of Documents generation
+2025-03-07 09:48:05,968 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:236 - Retrieved 1 documents from session
+2025-03-07 09:48:05,973 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:258 - Created temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmpemsw95g2
+2025-03-07 09:48:05,974 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:264 - Creating cover page...
+2025-03-07 09:48:05,978 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:267 - Creating index page...
+2025-03-07 09:48:05,982 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:274 - Creating receipt page...
+2025-03-07 09:48:05,988 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:292 - Found 1 successful documents to merge
+2025-03-07 09:48:05,993 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:316 - Merging 4 PDFs to: output\book_of_documents_7df74990-ab0d-4cfc-89da-5ce7e86da57e.pdf
+2025-03-07 09:48:06,089 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:328 - Cleaned up temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmpemsw95g2
+2025-03-07 09:48:06,090 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:332 - Successfully generated Book of Documents: output\book_of_documents_7df74990-ab0d-4cfc-89da-5ce7e86da57e.pdf
+2025-03-07 09:49:41,584 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 09:49:53,243 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 09:53:08,730 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 09:53:22,893 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 09:53:23,387 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 09:53:34,469 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:213 - Starting Book of Documents generation
+2025-03-07 09:53:34,470 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:236 - Retrieved 1 documents from session
+2025-03-07 09:53:34,474 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:258 - Created temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmphvwocl74
+2025-03-07 09:53:34,475 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:264 - Creating cover page...
+2025-03-07 09:53:34,479 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:267 - Creating index page...
+2025-03-07 09:53:34,489 - book_of_documents - ERROR - c:\Code\Book of Documents\controllers\document_controller.py:349 - Error creating Book of Documents: format not resolved, probably missing URL scheme or undefined destination target for '2'
+
+Details:
+Traceback (most recent call last):
+  File "c:\Code\Book of Documents\controllers\document_controller.py", line 268, in generate_pdf
+    index_result = create_index_page(index_path, book.documents)
+  File "c:\Code\Book of Documents\utils\pdf_utils.py", line 166, in create_index_page
+    index_doc.build(content)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\platypus\doctemplate.py", line 1317, in build
+    BaseDocTemplate.build(self,flowables, canvasmaker=canvasmaker)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\platypus\doctemplate.py", line 1108, in build
+    self._endBuild()
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\platypus\doctemplate.py", line 1043, in _endBuild
+    if getattr(self,'_doSave',1): self.canv.save()
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfgen\canvas.py", line 1298, in save
+    self._doc.SaveToFile(self._filename, self)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 212, in SaveToFile
+    data = self.GetPDFData(canvas)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 238, in GetPDFData
+    return self.format()
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 420, in format
+    IOf = IO.format(self)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 867, in format
+    fcontent = format(self.content, document, toplevel=1)   # yes this is at top level
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 67, in format
+    f = element.format(document)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 1604, in format
+    return D.format(document)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 680, in format
+    L = [(format(PDFName(k),document)+b" "+format(dict[k],document)) for k in keys]
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 680, in <listcomp>
+    L = [(format(PDFName(k),document)+b" "+format(dict[k],document)) for k in keys]
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 67, in format
+    f = element.format(document)
+  File "C:\Users\AJoubert\AppData\Roaming\Python\Python310\site-packages\reportlab\pdfbase\pdfdoc.py", line 1768, in format
+    if f is None: raise ValueError("format not resolved, probably missing URL scheme or undefined destination target for '%s'" % self.name)
+ValueError: format not resolved, probably missing URL scheme or undefined destination target for '2'
+
+2025-03-07 09:57:06,452 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 09:57:07,002 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 09:57:18,853 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:213 - Starting Book of Documents generation
+2025-03-07 09:57:18,854 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:236 - Retrieved 1 documents from session
+2025-03-07 09:57:18,858 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:258 - Created temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmpz157pm3s
+2025-03-07 09:57:18,859 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:264 - Creating cover page...
+2025-03-07 09:57:18,862 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:267 - Creating index page...
+2025-03-07 09:57:18,868 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:274 - Creating receipt page...
+2025-03-07 09:57:18,874 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:292 - Found 1 successful documents to merge
+2025-03-07 09:57:18,878 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:316 - Merging 4 PDFs to: output\book_of_documents_68fb39cb-f234-4118-bbff-a6cff671a181.pdf
+2025-03-07 09:57:18,979 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:328 - Cleaned up temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmpz157pm3s
+2025-03-07 09:57:18,980 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:332 - Successfully generated Book of Documents: output\book_of_documents_68fb39cb-f234-4118-bbff-a6cff671a181.pdf
+2025-03-07 09:57:48,052 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:213 - Starting Book of Documents generation
+2025-03-07 09:57:48,054 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:236 - Retrieved 7 documents from session
+2025-03-07 09:57:48,055 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:258 - Created temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmpmhb20oyw
+2025-03-07 09:57:48,056 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:264 - Creating cover page...
+2025-03-07 09:57:48,058 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:267 - Creating index page...
+2025-03-07 09:57:48,063 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:274 - Creating receipt page...
+2025-03-07 09:57:48,071 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:292 - Found 7 successful documents to merge
+2025-03-07 09:57:48,846 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:316 - Merging 10 PDFs to: output\book_of_documents_e664b996-18b4-4e30-9726-8c7098b2b8f1.pdf
+2025-03-07 09:58:06,943 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:328 - Cleaned up temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmpmhb20oyw
+2025-03-07 09:58:06,944 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:332 - Successfully generated Book of Documents: output\book_of_documents_e664b996-18b4-4e30-9726-8c7098b2b8f1.pdf
+2025-03-07 09:59:52,942 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 09:59:53,526 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 10:03:52,788 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:213 - Starting Book of Documents generation
+2025-03-07 10:03:52,789 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:236 - Retrieved 1 documents from session
+2025-03-07 10:03:52,793 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:258 - Created temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmpo_ktz54l
+2025-03-07 10:03:52,794 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:264 - Creating cover page...
+2025-03-07 10:03:52,796 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:267 - Creating index page...
+2025-03-07 10:03:52,804 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:274 - Creating receipt page...
+2025-03-07 10:03:52,808 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:292 - Found 1 successful documents to merge
+2025-03-07 10:03:52,813 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:316 - Merging 4 PDFs to: output\book_of_documents_be62f74e-3853-44ac-a52d-611f7717098e.pdf
+2025-03-07 10:03:52,893 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:328 - Cleaned up temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmpo_ktz54l
+2025-03-07 10:03:52,894 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:332 - Successfully generated Book of Documents: output\book_of_documents_be62f74e-3853-44ac-a52d-611f7717098e.pdf
+2025-03-07 10:06:48,777 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 10:06:51,510 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 10:07:04,455 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 10:07:04,966 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 10:07:15,887 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:407 - Serving document: ALEX ALJR FAKE.pdf from uploads\ALEX_ALJR_FAKE.pdf
+2025-03-07 10:07:33,156 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:407 - Serving document: Atomic habits ( PDFDrive ).pdf from uploads\Atomic habits ( PDFDrive )_1741360048.pdf
+2025-03-07 10:07:35,914 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:407 - Serving document: America00Ogil.pdf from uploads\America00Ogil_1741360048.pdf
+2025-03-07 10:08:12,723 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:213 - Starting Book of Documents generation
+2025-03-07 10:08:12,724 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:236 - Retrieved 8 documents from session
+2025-03-07 10:08:12,725 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:258 - Created temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmpnpfqhyob
+2025-03-07 10:08:12,726 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:264 - Creating cover page...
+2025-03-07 10:08:12,729 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:267 - Creating index page...
+2025-03-07 10:08:12,736 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:274 - Creating receipt page...
+2025-03-07 10:08:12,742 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:292 - Found 8 successful documents to merge
+2025-03-07 10:08:13,348 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:316 - Merging 11 PDFs to: output\book_of_documents_68b9ade3-3cab-492e-88ec-7209cab20e1d.pdf
+2025-03-07 10:08:30,996 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:328 - Cleaned up temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmpnpfqhyob
+2025-03-07 10:08:30,998 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:332 - Successfully generated Book of Documents: output\book_of_documents_68b9ade3-3cab-492e-88ec-7209cab20e1d.pdf
+2025-03-07 10:10:25,672 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:213 - Starting Book of Documents generation
+2025-03-07 10:10:25,673 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:236 - Retrieved 22 documents from session
+2025-03-07 10:10:25,674 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:258 - Created temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmph8kcqb_t
+2025-03-07 10:10:25,674 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:264 - Creating cover page...
+2025-03-07 10:10:25,677 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:267 - Creating index page...
+2025-03-07 10:10:25,688 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:274 - Creating receipt page...
+2025-03-07 10:10:25,697 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:292 - Found 22 successful documents to merge
+2025-03-07 10:10:27,421 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:316 - Merging 25 PDFs to: output\book_of_documents_c0155d35-6ab2-40bf-b659-035ad514d710.pdf
+2025-03-07 10:11:29,604 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:328 - Cleaned up temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmph8kcqb_t
+2025-03-07 10:11:29,605 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:332 - Successfully generated Book of Documents: output\book_of_documents_c0155d35-6ab2-40bf-b659-035ad514d710.pdf
+2025-03-07 10:20:34,007 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:407 - Serving document: Atomic habits ( PDFDrive ).pdf from uploads\Atomic habits ( PDFDrive )_1741360206.pdf
+2025-03-07 10:20:37,491 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:407 - Serving document: America00Ogil.pdf from uploads\America00Ogil_1741360206.pdf
+2025-03-07 12:13:56,023 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:213 - Starting Book of Documents generation
+2025-03-07 12:13:56,024 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:236 - Retrieved 7 documents from session
+2025-03-07 12:13:56,026 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:258 - Created temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmpo3idbibg
+2025-03-07 12:13:56,027 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:264 - Creating cover page...
+2025-03-07 12:13:56,031 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:267 - Creating index page...
+2025-03-07 12:13:56,039 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:274 - Creating receipt page...
+2025-03-07 12:13:56,047 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:292 - Found 7 successful documents to merge
+2025-03-07 12:13:57,741 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:316 - Merging 10 PDFs to: output\book_of_documents_611b9aa6-f298-4143-a86a-3f12699aa2e7.pdf
+2025-03-07 12:14:22,011 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:328 - Cleaned up temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmpo3idbibg
+2025-03-07 12:14:22,012 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:332 - Successfully generated Book of Documents: output\book_of_documents_611b9aa6-f298-4143-a86a-3f12699aa2e7.pdf
+2025-03-07 12:16:10,564 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 12:18:54,570 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 12:18:55,125 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 12:19:06,025 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:215 - Starting Book of Documents generation
+2025-03-07 12:19:06,025 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:238 - Retrieved 1 documents from session
+2025-03-07 12:19:06,028 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:260 - Created temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmpt_e21ze6
+2025-03-07 12:19:06,029 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:266 - Creating cover page...
+2025-03-07 12:19:06,032 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:269 - Creating index page...
+2025-03-07 12:19:06,037 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:276 - Creating receipt page...
+2025-03-07 12:19:06,042 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:294 - Found 1 successful documents to merge
+2025-03-07 12:19:06,047 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:322 - Merging 4 PDFs to: output\book_of_documents_AJoubert_20250307_121906.pdf
+2025-03-07 12:19:06,134 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:334 - Cleaned up temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmpt_e21ze6
+2025-03-07 12:19:06,135 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:338 - Successfully generated Book of Documents: output\book_of_documents_AJoubert_20250307_121906.pdf
+2025-03-07 13:04:30,455 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 13:07:43,754 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 13:08:05,111 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:471 - Serving document: CIA-RDP79B00752A000300120001-2.pdf from uploads\CIA-RDP79B00752A000300120001-2_1741370880.pdf
+2025-03-07 13:08:12,656 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:263 - Starting Book of Documents generation
+2025-03-07 13:08:12,657 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:270 - Generating Book of Documents in language: en
+2025-03-07 13:08:12,658 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:293 - Retrieved 7 documents from session
+2025-03-07 13:08:12,659 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:315 - Created temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmpv7fan7sh
+2025-03-07 13:08:12,660 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:324 - Creating cover page...
+2025-03-07 13:08:12,664 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:327 - Creating index page...
+2025-03-07 13:08:12,665 - book_of_documents - ERROR - c:\Code\Book of Documents\controllers\document_controller.py:413 - Error creating Book of Documents: create_index_page() takes 2 positional arguments but 3 were given
+
+Details:
+Traceback (most recent call last):
+  File "c:\Code\Book of Documents\controllers\document_controller.py", line 328, in generate_pdf
+    index_result = create_index_page(index_path, book.documents, translations)
+TypeError: create_index_page() takes 2 positional arguments but 3 were given
+
+2025-03-07 13:11:00,565 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 13:11:05,751 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 13:11:20,464 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 13:11:20,990 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 13:11:52,549 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:263 - Starting Book of Documents generation
+2025-03-07 13:11:52,550 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:270 - Generating Book of Documents in language: en
+2025-03-07 13:11:52,550 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:293 - Retrieved 7 documents from session
+2025-03-07 13:11:52,552 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:315 - Created temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmp6dsx_vv_
+2025-03-07 13:11:52,553 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:324 - Creating cover page...
+2025-03-07 13:11:52,557 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:327 - Creating index page...
+2025-03-07 13:11:52,564 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:334 - Creating receipt page...
+2025-03-07 13:11:52,568 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:352 - Found 7 successful documents to merge
+2025-03-07 13:11:53,147 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:380 - Merging 10 PDFs to: output\book_of_documents_AJoubert_20250307_131153.pdf
+2025-03-07 13:12:11,825 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:392 - Cleaned up temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmp6dsx_vv_
+2025-03-07 13:12:11,826 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:396 - Successfully generated Book of Documents: output\book_of_documents_AJoubert_20250307_131153.pdf
+2025-03-07 13:13:16,057 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:263 - Starting Book of Documents generation
+2025-03-07 13:13:16,057 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:270 - Generating Book of Documents in language: en
+2025-03-07 13:13:16,058 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:293 - Retrieved 14 documents from session
+2025-03-07 13:13:16,059 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:315 - Created temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmp156rjlhm
+2025-03-07 13:13:16,060 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:324 - Creating cover page...
+2025-03-07 13:13:16,062 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:327 - Creating index page...
+2025-03-07 13:13:16,069 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:334 - Creating receipt page...
+2025-03-07 13:13:16,076 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:352 - Found 14 successful documents to merge
+2025-03-07 13:13:17,539 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:380 - Merging 17 PDFs to: output\book_of_documents_AJoubert_20250307_131317.pdf
+2025-03-07 13:14:03,855 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:392 - Cleaned up temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmp156rjlhm
+2025-03-07 13:14:03,856 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:396 - Successfully generated Book of Documents: output\book_of_documents_AJoubert_20250307_131317.pdf
+2025-03-07 13:19:54,482 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 13:19:55,193 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 13:20:31,307 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:263 - Starting Book of Documents generation
+2025-03-07 13:20:31,307 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:270 - Generating Book of Documents in language: en
+2025-03-07 13:20:31,308 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:293 - Retrieved 7 documents from session
+2025-03-07 13:20:31,310 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:315 - Created temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmpftalp3_7
+2025-03-07 13:20:31,310 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:324 - Creating cover page...
+2025-03-07 13:20:31,314 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:327 - Creating index page...
+2025-03-07 13:20:31,322 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:334 - Creating receipt page...
+2025-03-07 13:20:31,329 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:352 - Found 7 successful documents to merge
+2025-03-07 13:20:32,132 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:380 - Merging 10 PDFs to: output\book_of_documents_AJoubert_20250307_132032.pdf
+2025-03-07 13:20:58,130 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:392 - Cleaned up temporary directory: C:\Users\AJoubert\AppData\Local\Temp\tmpftalp3_7
+2025-03-07 13:20:58,131 - book_of_documents - INFO - c:\Code\Book of Documents\controllers\document_controller.py:396 - Successfully generated Book of Documents: output\book_of_documents_AJoubert_20250307_132032.pdf
+2025-03-07 15:08:55,190 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation
+2025-03-07 15:08:55,715 - book_of_documents - INFO - c:\Code\Book of Documents\app.py:55 - Using ReportLab for PDF generation

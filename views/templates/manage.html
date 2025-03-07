@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Documents - Book of Documents</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/manage.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Manage Documents</h1>
+        
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="alert alert-danger">
+                <ul>
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            </div>
+          {% endif %}
+        {% endwith %}
+        
+        <div class="upload-container">
+            <div class="upload-section drop-zone" id="dropZone">
+                <h2>Upload Documents</h2>
+                <p>Drag and drop PDF or ZIP files here, or click to select files</p>
+                <form id="uploadForm" method="post" action="{{ url_for('document.upload_file') }}" enctype="multipart/form-data">
+                    <input type="file" name="file" id="file" accept=".pdf,.zip" class="file-input" multiple>
+                    <label for="file" class="file-label">Choose Files</label>
+                </form>
+            </div>
+            
+            <div class="upload-section">
+                <h2>Upload Folder</h2>
+                <p>Select a folder containing PDF files</p>
+                <form id="folderForm" method="post" action="{{ url_for('document.upload_file') }}" enctype="multipart/form-data">
+                    <input type="file" name="folder" id="folder" webkitdirectory directory multiple class="file-input">
+                    <label for="folder" class="file-label">Choose Folder</label>
+                </form>
+            </div>
+        </div>
+        
+        <div class="document-container">
+            <div class="document-header">
+                <h2>Document List</h2>
+                <div class="document-actions">
+                    <button id="clearAll" class="btn btn-danger">Clear All</button>
+                    <button id="generatePDF" class="btn btn-primary">Generate Book</button>
+                </div>
+            </div>
+            
+            <p id="dragHint" class="drag-hint">Drag items to reorder documents in the final PDF</p>
+            
+            <div id="documentList" class="document-list">
+                {% if documents|length == 0 %}
+                    <div class="no-documents">No documents uploaded yet</div>
+                {% else %}
+                    {% for doc in documents %}
+                        <div class="document-item" draggable="true" data-id="{{ doc.id }}">
+                            <div class="document-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                </svg>
+                            </div>
+                            <div class="document-info">
+                                <div class="document-name">{{ doc.original_filename }}</div>
+                                <div class="document-meta">
+                                    <span class="document-status {{ doc.status }}">{{ doc.status }}</span>
+                                    <span class="document-pages">{{ doc.page_count }} pages</span>
+                                </div>
+                            </div>
+                            <div class="document-actions">
+                                <button class="btn-delete" data-id="{{ doc.id }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                    </svg>
+                                </button>
+                                <div class="drag-handle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="9" cy="12" r="1"></circle>
+                                        <circle cx="9" cy="5" r="1"></circle>
+                                        <circle cx="9" cy="19" r="1"></circle>
+                                        <circle cx="15" cy="12" r="1"></circle>
+                                        <circle cx="15" cy="5" r="1"></circle>
+                                        <circle cx="15" cy="19" r="1"></circle>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    
+        <div class="back-link">
+            <a href="{{ url_for('document.index') }}">Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Upload progress overlay -->
+    <div id="uploadProgress" class="upload-progress-overlay">
+        <div class="upload-progress-content">
+            <h3>Uploading Documents</h3>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div id="progressText">0%</div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/manage.js') }}"></script>
+</body>
+</html>

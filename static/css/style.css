@@ -1,0 +1,308 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7f9;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+}
+
+h2 {
+    color: #3498db;
+    margin-bottom: 1rem;
+}
+
+.alert {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.upload-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.upload-section {
+    text-align: center;
+}
+
+.file-input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.file-label {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+.file-label:hover {
+    background-color: #2980b9;
+}
+
+.folder-link {
+    color: #3498db;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.folder-link:hover {
+    color: #2980b9;
+}
+
+.hidden-form {
+    display: none;
+}
+
+.extra-options {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+.info-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 2rem;
+}
+
+.info-container ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Add styles for indeterminate progress bar */
+.progress-indeterminate {
+    background: linear-gradient(to right, #4f9cf9 30%, #84c0ff 50%, #4f9cf9 70%);
+    background-size: 200% 100%;
+    animation: progress-animation 1.5s linear infinite;
+    width: 100% !important;
+}
+
+@keyframes progress-animation {
+    0% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Make sure the upload progress overlay styles are properly defined */
+.upload-progress-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.upload-progress-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.upload-progress-content h3 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+/* Progress bar styling */
+.progress-bar-container {
+    width: 100%;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #3498db;
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+/* Animation for the indeterminate progress bar - keeping this for reference */
+.progress-indeterminate {
+    background: linear-gradient(to right, #4f9cf9 30%, #84c0ff 50%, #4f9cf9 70%);
+    background-size: 200% 100%;
+    animation: progress-animation 1.5s linear infinite;
+}
+
+@keyframes progress-animation {
+    0% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Close button for progress overlay */
+.close-btn {
+    margin-top: 15px;
+    padding: 8px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.close-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Error details styling */
+.error-details {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.details-toggle {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.details-toggle:hover {
+    background-color: #5a6268;
+}
+
+.details-content {
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 12px;
+    color: #212529;
+    max-height: 150px;
+    overflow-y: auto;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.details-content pre {
+    white-space: pre-wrap;
+    word-break: break-all;
+    margin: 0;
+}
+
+/* Log viewer styles */
+.log-details {
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+}
+
+.log-details summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: #3498db;
+}
+
+.log-container {
+    margin-top: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.log-container pre {
+    white-space: pre-wrap;
+    word-break: break-all;
+    font-size: 12px;
+    margin: 0;
+}
+
+#refreshLogs {
+    margin-top: 10px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+#refreshLogs:hover {
+    background-color: #5a6268;
+}
+
+/* Header container with language selector */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+/* Language selector styles */
+.language-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.language-selector label {
+    font-weight: bold;
+    color: #3498db;
+}
+
+.language-selector select {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.language-selector select:hover {
+    border-color: #3498db;
+}
